@@ -296,6 +296,7 @@ useEffect(() => {
             Your exit strategy starts here.
           </p>
 
+
           {session && (
             <p className="text-sm text-emerald-400 mt-2">
               Welcome back, {session.user.name}
@@ -314,7 +315,7 @@ useEffect(() => {
             onClick={() => setShowFeedback(true)}
             className="text-sm text-purple-400 hover:underline mt-1 block"
           >
-            Share Feedback
+            Send Us Your Feedback
           </button>
 
 
@@ -342,7 +343,14 @@ useEffect(() => {
 
 
         <button
-          onClick={() => setShowTimelineModal(true)}
+          onClick={() => {
+            if (!session) {
+              alert("Please log in first.")
+              return
+            }
+
+            setShowTimelineModal(true)
+          }}          
           className="no-print w-full bg-slate-600 hover:bg-slate-500 transition p-2 rounded font-medium mt-4"
         >
           📂 View My Timelines
