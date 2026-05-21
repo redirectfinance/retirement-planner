@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 40px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  h1 {
+    font-size: 28px;
+  }  
+
+  p {
+    font-size: 14px;
+  }
+
+  /* Hide things you don't want in PDF */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Make content centered and clean */
+  .print-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Avoid awkward page breaks */
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+
+  .print-strong {
+    color: black !important;
+  }
+
+  /* always page break */  
+  .page-break {
+    page-break-before: always;
+  }
+
+  .print-white {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

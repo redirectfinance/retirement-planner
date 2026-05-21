@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  name      String
+  password  String
+  role      Role       @default(FREE)
+  createdAt DateTime   @default(now())
+  timelines Timeline[]
+  feedbacks Feedback[]
+}
+
+enum Role {
+  FREE
+  PREMIUM
+}
+
+model Timeline {
+  id    String @id @default(cuid())
+  title String
+
+  currency  String
+  birthDate String
+
+  dailyIncomeTarget Float
+  currentSavings    Float
+  monthlyInvestment Float
+  expectedReturn    Float
+  inflationRate     Float
+
+  targetWealth  Float
+  yearsRequired Float
+  retirementAge Float
+
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model Feedback {
+  id String @id @default(cuid())
+
+  message   String
+  createdAt DateTime @default(now())
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id])
+}
