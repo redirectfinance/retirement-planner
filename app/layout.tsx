@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Escape the Rat Race",
   description: "Your personalized financial freedom plan",
+  verification: 
+  {google: "viqESJ_gtGlBqlasY_OVijZc1wYupPZAPlcR7B_WvZg",
+  },
 };
 
 export default function RootLayout({
