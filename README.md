@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -38,3 +39,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 =======
 # retirement-planner
 >>>>>>> 2403826d52c254d5d0a4a1cb970c581ff1146695
+=======
+# Escape the Rat Race
+
+A retirement planning web app.
+>>>>>>> 2db3805a8fbdc43552331ea81ef087bb889865e0
