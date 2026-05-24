@@ -282,7 +282,7 @@ useEffect(() => {
 
 
       {/* Main Card Container */}
-      <div className="relative w-full max-w-2xl bg-gray-800 rounded-2xl shadow-2xl p-8 flex flex-col gap-y-5 text-white hover:scale-[1.01] transition-transform duration-300">
+      <div className="relative w-full max-w-2xl bg-gray-800 rounded-2xl shadow-2xl p-8 flex flex-col gap-y-5 text-white">
 
       {/* Card Header */}
       <div className="w-full flex justify-between items-start mb-6">
@@ -342,24 +342,10 @@ useEffect(() => {
       </div>
 
 
-        <button
-          onClick={() => {
-            if (!session) {
-              alert("Please log in first.")
-              return
-            }
-
-            setShowTimelineModal(true)
-          }}          
-          className="no-print w-full bg-slate-600 hover:bg-slate-500 transition p-2 rounded font-medium mt-4"
-        >
-          📂 View My Timelines
-        </button>
-
         <div className="no-print grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="Select the currency you want to use for all calculations and projections. This affects display symbols only." />
-            Choose Your Currency
+            Set your currency
           </label>
 
           <div className="relative flex-1">
@@ -385,7 +371,7 @@ useEffect(() => {
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="Your exact birth date; This is used to calculate your exact current age." />
-            <span>When were you born?</span>
+            <span>Set your birth date</span>
           </label>
 
           <input
@@ -408,7 +394,7 @@ useEffect(() => {
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="The amount of income you want to receive per day during financial independence." />
-            <span>How much would you need daily to feel free?</span>
+            <span>Daily allowance target (e.g., 1,000 per day)</span>
           </label>
 
           <div className="relative flex-1">
@@ -437,7 +423,7 @@ useEffect(() => {
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="The total amount you currently have invested or saved that will start compounding toward your financial independence goal." />
-            <span>How much are your current investments?</span>
+            <span>Current investment value (e.g., 500,000)</span>
           </label>
 
           <div className="relative flex-1">
@@ -466,7 +452,7 @@ useEffect(() => {
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="How much you plan to invest every month toward your goal. This amount compounds annually based on your expected return." />
-            <span>How much will you invest monthly?</span>
+            <span>Monthly investment (e.g., 1,000 per month)</span>
           </label>
 
           <div className="relative flex-1">
@@ -494,7 +480,7 @@ useEffect(() => {
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="Estimated average annual investment return before inflation (e.g., 8–10% for long-term index investing)." />
-            <span>Expected Return (%)</span>
+            <span>Investments' yearly growth rate (e.g., 10%)</span>
           </label>
 
           <div className="relative flex-1">
@@ -516,7 +502,7 @@ useEffect(() => {
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="Estimated average annual inflation rate. This reduces your real purchasing power and is subtracted from your expected return." />
-            <span>Inflation Rate (%)</span>
+            <span>Your country's inflation rate (e.g., 4%)</span>
           </label>
 
           <div className="relative flex-1">
@@ -543,13 +529,21 @@ useEffect(() => {
           Reset My Exit Strategy
         </button>
 
+        {session && (
+          <button
+            onClick={() => setShowTimelineModal(true)}
+            className="no-print w-full bg-slate-600 hover:bg-slate-500 transition p-2 rounded font-medium"
+          >
+            View My Saved Exit Strategies
+          </button>
+        )}
 
 
 
       </div>
 
     {/* RESULTS CARD */}    
-    <div className="relative w-full max-w-2xl bg-gray-800 rounded-2xl shadow-2xl p-8 flex flex-col gap-y-5 text-white hover:scale-[1.01] transition-transform duration-300">
+    <div className="relative w-full max-w-2xl bg-gray-800 rounded-2xl shadow-2xl p-8 flex flex-col gap-y-5 text-white">
         {retirementResult && (
           <>
             <div className="mt-6 space-y-2">
