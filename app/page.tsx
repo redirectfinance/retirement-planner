@@ -34,10 +34,9 @@ export default function FinancialPlanner() {
   // ============================
 
   const [mounted, setMounted] = useState(false);
-
-useEffect(() => {
-  setMounted(true);
-}, []);
+    useEffect(() => {
+      setMounted(true);
+    }, []);
   
   const currencies = [
     { code: "PHP", name: "Philippine Peso", symbol: "₱" },
@@ -79,12 +78,12 @@ useEffect(() => {
                         w-4 h-4 text-[10px] 
                         text-gray-300 border border-gray-500 
                         rounded-full">
-          i
+          ?
         </span>
 
         <div className="absolute z-10 hidden group-hover:block 
                         bg-gray-900 text-xs text-gray-200 
-                        p-2 rounded w-64 -left-28 top-6 shadow-lg">
+                        p-2 rounded max-w-[80vw] left-0 top-6 shadow-lg">
           {text}
         </div>
       </div>
@@ -393,8 +392,10 @@ useEffect(() => {
 
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
-            <InfoTooltip text="The amount of income you want to receive per day during financial independence." />
-            <span>Daily allowance target (e.g., 1,000 per day)</span>
+            <InfoTooltip 
+            text="The amount of money you want to receive as allowance each day during financial independence.
+            Example: 1,000 per day" />
+            <span>Daily allowance target</span>
           </label>
 
           <div className="relative flex-1">
@@ -422,8 +423,11 @@ useEffect(() => {
 
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
-            <InfoTooltip text="The total amount you currently have invested or saved that will start compounding toward your financial independence goal." />
-            <span>Current investment value (e.g., 500,000)</span>
+            <InfoTooltip
+              text=
+              "The total value of your current investments (if there are any), such as stocks, ETFs, Mutual Funds, etc. Example value: 500,000."
+            />
+            <span>Current investments amount</span>
           </label>
 
           <div className="relative flex-1">
@@ -451,8 +455,8 @@ useEffect(() => {
 
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
-            <InfoTooltip text="How much you plan to invest every month toward your goal. This amount compounds annually based on your expected return." />
-            <span>Monthly investment (e.g., 1,000 per month)</span>
+            <InfoTooltip text="How much you plan to invest every month toward your goal. Example: 1000 per month" />
+            <span>Monthly investment</span>
           </label>
 
           <div className="relative flex-1">
@@ -480,7 +484,7 @@ useEffect(() => {
         <div className="grid grid-cols-[220px_1fr] gap-4 items-center items-center">
           <label className="w-44 text-sm text-gray-300 flex items-center gap-2">
             <InfoTooltip text="Estimated average annual investment return before inflation (e.g., 8–10% for long-term index investing)." />
-            <span>Investments' yearly growth rate (e.g., 10%)</span>
+            <span>Investments' annual growth rate (e.g., 10%)</span>
           </label>
 
           <div className="relative flex-1">
